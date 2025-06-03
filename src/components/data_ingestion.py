@@ -22,10 +22,10 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method")
         try:
-            df=pd.read_csv('notebook/data/stud.csv')
+            df=pd.read_csv('notebooks/data/stud.csv')
             logging.info('Read the dataset as dataframe and exported it to dataframe')
 
-            os.makedirs(self.ingestion_config.train_data_path, exist_ok=True)
+            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
 
             df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
             logging.info('Dataframe to CSV file conversion done and exported to artifacts folder')
@@ -50,4 +50,4 @@ if __name__ == "__main__":
         train_data, test_data = data_ingestion.initiate_data_ingestion()
     except Exception as e:
         logging.error(e)
-        raise CustomException(e, sys)
+        

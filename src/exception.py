@@ -19,13 +19,3 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
-
-if __name__ == "__main__":
-    try:
-        raise ValueError("This is a test error")
-    except Exception as e:
-        logging.error(f"An error occurred: {e}")
-        custom_exception = CustomException(e, sys)
-        print(custom_exception)
-        # This will print the error message with file name and line number
-        print(str(custom_exception))
