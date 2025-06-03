@@ -16,3 +16,5 @@ plotly
 xgboost
 lightgbm
 # Additional libraries for web scraping and data handling
+
+-e .
